@@ -1,0 +1,30 @@
+.paragraph {
+    color: blue;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    padding: 20px;
+    border: 1px solid blue;
+    border-radius: 10px;
+}
+
+.btn {
+    background-color: blue;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background-color: green;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}

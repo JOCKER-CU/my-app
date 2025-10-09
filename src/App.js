@@ -12,6 +12,11 @@ import FunctionClick from './components/FunctionClick';
 import ClassClick from './components/ClassClick';
 import EventBind from './components/EventBind';
 import ParentComponent from './components/ParentComponent';
+import UserGreeting from './components/UserGreeting';
+import Bag from './components/Bag';
+import JsxStyling from './components/JsxStyling';
+import ConditionalStyling from './components/ConditionalStyling';
+import FunctionExpression from './components/FunctionExpression';
 
 function App() {
   const name = "Han Naung Soe";
@@ -36,7 +41,18 @@ function App() {
       <EventBind />
       <hr style={{ margin: '40px 0' }} />
       <ParentComponent />
-
+      <hr style={{ margin: '40px 0' }} />
+      <UserGreeting />
+      <hr style={{ margin: '40px 0' }} />
+      <Bag />
+      <hr style={{ margin: '40px 0' }} />
+      <JsxStyling />
+      <hr style={{ margin: '40px 0' }} />
+      <ConditionalStyling isLoggedIn={true} />
+      <hr style={{ margin: '40px 0' }} />
+      <ConditionalStyling isLoggedIn={false} />
+      <hr style={{ margin: '40px 0' }} />
+      <FunctionExpression first="First" second="Second" third="Third" />
       {/* JSX Examples Section - Main Content */}
       <JsxExamples name={name} phone={phone} />
 
