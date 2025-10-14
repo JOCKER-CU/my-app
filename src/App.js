@@ -1,12 +1,12 @@
 import './App.css';
 import Hello from './components/Hello';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Routes, Route, Link } from 'react-router-dom';
 import Home from './components/Home';
 import About from './components/About';
 import Contact from './components/Contact';
 import JsxExamples from './components/JsxExamples';
 import Message from './components/Message';
-import React from 'react';
+import React, { useState } from 'react';
 import Counter from './components/Counter';
 import FunctionClick from './components/FunctionClick';
 import ClassClick from './components/ClassClick';
@@ -17,10 +17,21 @@ import Bag from './components/Bag';
 import JsxStyling from './components/JsxStyling';
 import ConditionalStyling from './components/ConditionalStyling';
 import FunctionExpression from './components/FunctionExpression';
+import Button from './components/Button';
+import NameList from './components/NameList';
+import Registration from './components/Registration';
+import TwoWaysDataBinding from './components/TwoWaysDataBinding';
+import RefUsage from './components/RefUsage';
+import LiftingState from './components/LiftingState';
+import ExportImportDemo from './components/ExportImportDemo';
+import Categories from './components/route/Categories';
 
 function App() {
   const name = "Han Naung Soe";
   const phone = "09777777777";
+  const [isOn, setIsOn] = useState(false);
+
+  const toggleLight = () => setIsOn(!isOn);
 
   return (
     <div>
@@ -34,6 +45,88 @@ function App() {
         <h2 style={{ margin: 0 }}>My React App - JSX Testing</h2>
       </nav>
 
+      <h1>React Router</h1>
+      <hr style={{ margin: '40px 0', border: '3px solid #2196f3' }} />
+
+      {/* Navigation Links */}
+      <nav style={{
+        display: 'flex',
+        gap: '20px',
+        padding: '20px',
+        backgroundColor: '#f8f9fa',
+        borderRadius: '8px',
+        marginBottom: '20px'
+      }}>
+        <Link to="/" style={{
+          padding: '10px 20px',
+          backgroundColor: '#667eea',
+          color: 'white',
+          textDecoration: 'none',
+          borderRadius: '5px',
+          fontWeight: 'bold',
+          transition: 'background-color 0.3s'
+        }}>
+          🏠 Home
+        </Link>
+        <Link to="/about" style={{
+          padding: '10px 20px',
+          backgroundColor: '#f093fb',
+          color: 'white',
+          textDecoration: 'none',
+          borderRadius: '5px',
+          fontWeight: 'bold',
+          transition: 'background-color 0.3s'
+        }}>
+          👋 About
+        </Link>
+        <Link to="/contact" style={{
+          padding: '10px 20px',
+          backgroundColor: '#4facfe',
+          color: 'white',
+          textDecoration: 'none',
+          borderRadius: '5px',
+          fontWeight: 'bold',
+          transition: 'background-color 0.3s'
+        }}>
+          📧 Contact
+        </Link>
+        <Link to="/category" style={{
+          padding: '10px 20px',
+          backgroundColor: '#43e97b',
+          color: 'white',
+          textDecoration: 'none',
+          borderRadius: '5px',
+          fontWeight: 'bold',
+          transition: 'background-color 0.3s'
+        }}>
+          🗂️ Categories
+        </Link>
+      </nav>
+
+      <hr style={{ margin: '40px 0', border: '3px solid #2196f3' }} />
+
+      {/* Routes */}
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/category" element={<Categories />} />
+      </Routes>
+
+      {/* Export/Import Examples Section */}
+      <ExportImportDemo />
+      <hr style={{ margin: '40px 0', border: '3px solid #2196f3' }} />
+
+      <Registration />
+      <hr style={{ margin: '40px 0' }} />
+      <TwoWaysDataBinding />
+      <hr style={{ margin: '40px 0' }} />
+      <LiftingState isON={isOn} onToggle={toggleLight} />
+      <hr style={{ margin: '40px 0' }} />
+      <Button />
+      <hr style={{ margin: '40px 0' }} />
+      <RefUsage />
+      <hr style={{ margin: '40px 0' }} />
       <FunctionClick />
       <hr style={{ margin: '40px 0' }} />
       <ClassClick />
@@ -53,6 +146,8 @@ function App() {
       <ConditionalStyling isLoggedIn={false} />
       <hr style={{ margin: '40px 0' }} />
       <FunctionExpression first="First" second="Second" third="Third" />
+      <hr style={{ margin: '40px 0' }} />
+      <NameList />
       {/* JSX Examples Section - Main Content */}
       <JsxExamples name={name} phone={phone} />
 
@@ -90,19 +185,6 @@ function App() {
         <Counter />
       </div>
 
-      <hr style={{ margin: '40px 0' }} />
-
-      {/* Router Section */}
-      <div style={{ padding: '20px' }}>
-        <h2>Router Navigation</h2>
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/contact" element={<Contact />} />
-          </Routes>
-        </BrowserRouter>
-      </div>
     </div>
   );
 }
